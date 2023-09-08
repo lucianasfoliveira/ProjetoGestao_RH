@@ -1,0 +1,65 @@
+package br.com.taking.ProjetoGestaoRH.controller;
+
+public class FiltroCandidato {
+	
+	private String identificationDocument;
+	
+	private int gender_Id;
+	
+	private String area_interest;
+	
+	private String course;
+	
+	private String role;
+	
+	private int academicQualification_id;
+
+	public String getIdentificationDocument() {
+		return identificationDocument;
+	}
+
+	public void setIdentificationDocument(String identificationDocument) {
+		this.identificationDocument = identificationDocument;
+	}
+
+	public int getGender_Id() {
+		return gender_Id;
+	}
+
+	public void setGender_Id(int gender_Id) {
+		this.gender_Id = gender_Id;
+	}
+
+	public String getArea_interest() {
+		return area_interest;
+	}
+
+	public void setArea_interest(String area_interest) {
+		this.area_interest = area_interest;
+	}
+
+	public String getCourse() {
+		return course;
+	}
+
+	public void setCourse(String course) {
+		this.course = course;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public int getAcademicQualification_id() {
+		return academicQualification_id;
+	}
+
+	public void setAcademicQualification_id(int academicQualification_id) {
+		this.academicQualification_id = academicQualification_id;
+	}
+
+}

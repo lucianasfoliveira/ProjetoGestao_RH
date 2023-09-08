@@ -1,0 +1,27 @@
+package br.com.taking.ProjetoGestaoRH.service;
+
+import java.util.Date;
+import java.util.List;
+
+import br.com.taking.ProjetoGestaoRH.model.Candidato;
+
+
+public interface CandidatoService {
+
+	List<Candidato> listarTodos();
+	
+	Candidato obterPorId(int id);
+	
+	List<Candidato> findByIdentificationDocument(String identification);
+	
+	List<Candidato> obterPorGender(int gender);
+	
+	List<Candidato> obterPorAreaInterest(int areaInterest);
+	
+	List<Candidato> filtrar(String identificationDocument, Integer gender,
+			Integer area_interest, String areaInterestname, int role, 
+			String companyName, String activitiesPerformed, int formation,
+			int status,int institution, int course, String coursename,
+			String institutionname, int city, int state, int country,
+			int languages, int level, int age, Date ageini, Date agefim);
+}

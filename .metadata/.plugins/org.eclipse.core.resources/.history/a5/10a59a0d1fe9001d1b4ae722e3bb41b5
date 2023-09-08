@@ -1,0 +1,143 @@
+package br.com.taking.ProjetoGestaoRH.controller;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.taking.ProjetoGestaoRH.model.Candidato;
+import br.com.taking.ProjetoGestaoRH.repository.CandidatoRepository;
+import br.com.taking.ProjetoGestaoRH.service.CandidatoService;
+
+@RestController
+public class CandidatoController {
+	
+	@Autowired
+	CandidatoService candidatoService;
+	@Autowired
+    private CandidatoRepository candidatoRepository;
+	
+	//LISTAR TODOS OS CANDIDATOS
+	@RequestMapping(value= "/candidato", method = RequestMethod.GET)
+	public ResponseEntity<List<Candidato>> GetALL(){
+		
+		List<Candidato> resultado = candidatoService.listarTodos();
+		return new ResponseEntity<List<Candidato>> (resultado, HttpStatus.OK);
+		
+	}
+	
+	//FILTRAR CANDIDATO POR ID
+	@RequestMapping(value = "/candidato/{id}", method = RequestMethod.GET)
+	public ResponseEntity<Candidato> GetById(@PathVariable(value ="id") int id){
+		 Candidato candidato = candidatoService.obterPorId(id);
+		 if(candidato != null) {
+			 return new ResponseEntity<Candidato>(candidato, HttpStatus.OK );
+			}else {
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			
+		 }
+	
+	}
+	
+	//FILTRAR CANDIDATO POR DOCUMENTO DE IDENTIFICAÇÃO
+	@RequestMapping(value = "/candidato/identification/{identificationDocument}", method = RequestMethod.GET)
+	public ResponseEntity<List<Candidato>> findByIdentificationDocument(@PathVariable(value = "identificationDocument") String identification){
+		List<Candidato> candidato = candidatoService.findByIdentificationDocument(identification);
+		 if(candidato != null) {
+			 return new ResponseEntity<>(candidato, HttpStatus.OK );
+			}else {
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		 }
+	
+	}
+	
+	//FILTRAR CANDIDATO POR GÊNERO
+	@RequestMapping(value = "/candidato/gender/{gender}", method = RequestMethod.GET)
+	public ResponseEntity<List<Candidato>> findByGender(@PathVariable(value = "gender") int gender){
+		List<Candidato> candidato = candidatoService.obterPorGender(gender);
+		if(candidato != null) {
+			return new ResponseEntity<List<Candidato>>(candidato, HttpStatus.OK );
+			}else {
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			
+		 }
+	}
+	
+	
+    //FILTRAR CANDIDATO PELA AREA DE INTERESSE
+	@RequestMapping(value = "/candidato/areaInterest/{areaInterest}", method = RequestMethod.GET)
+	public ResponseEntity<List<Candidato>> findByAreaInterest(@PathVariable(value = "areaInterest") int areaInterest){
+		List<Candidato> candidatos = candidatoService.obterPorAreaInterest(areaInterest);
+		if(candidatos != null) {
+				return new ResponseEntity<List<Candidato>>(candidatos, HttpStatus.OK );
+				}else {
+					return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+				
+		 }
+	}
+	
+	
+    //FILTRAR CANDIDATO POR INTERVALO DE IDADE
+    @RequestMapping(value = "/candidato/ages/{age1}/{age2}", method = RequestMethod.GET)
+    public List<Candidato> FilterAge(@PathVariable(value = "age1") int age1, @PathVariable(value = "age2") int age2) {
+        return candidatoRepository.filterAges(age1, age2);
+    }
+    
+    
+    @RequestMapping(value = "/candidato/filter", method = RequestMethod.POST)
+	public List<Candidato> Filter(@RequestBody FiltroCandidato filtro){
+		
+		String identificationDocumentFiltro = filtro.getIdentificationDocument();
+		
+		int genderFiltro = filtro.getGender();
+		
+		int area_interestFiltro = filtro.getArea_interest();
+		
+		String areaInterestnameFiltro = filtro.getAreaInterestname();
+		
+		int roleFiltro = filtro.getRole();
+		
+		String companyNameFiltro = filtro.getCompanyName();
+		
+		String activitiesPerformedFiltro = filtro.getActivitiesPerformed();
+		
+		int formationFiltro  = filtro.getFormation();
+		
+		int statusFiltro = filtro.getStatus();
+		
+		int institutionFiltro = filtro.getInstitution();
+		
+		int courseFiltro = filtro.getCourse();
+		
+		String institutionnameFiltro = filtro.getInstitutionname();
+		
+		int cityFiltro = filtro.getCity();
+		
+		int stateFiltro = filtro.getState();
+		
+		int countryFiltro = filtro.getCountry();
+		
+		int languagesFiltro = filtro.getLanguages();
+		
+		int levelFiltro = filtro.getLevel();
+		
+		int ageFiltro = filtro.getAge();
+		
+		Date ageiniFiltro = filtro.getAgeini();
+		
+		Date agefimFiltro = filtro.getAgefim();
+
+		return candidatoService.filtrar(identificationDocumentFiltro, genderFiltro, area_interestFiltro, areaInterestnameFiltro, roleFiltro, companyNameFiltro, activitiesPerformedFiltro, formationFiltro, statusFiltro, institutionFiltro, courseFiltro, institutionnameFiltro, institutionnameFiltro, cityFiltro, stateFiltro, countryFiltro, languagesFiltro, levelFiltro, ageFiltro, ageiniFiltro, agefimFiltro);
+
+    }
+}
+	
+
+

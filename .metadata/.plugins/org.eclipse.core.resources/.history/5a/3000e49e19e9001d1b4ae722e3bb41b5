@@ -1,0 +1,153 @@
+package br.com.taking.ProjetoGestaoRH.controller;
+
+import java.sql.Date;
+
+public class FiltroCandidato {
+	
+	
+	private String identificationDocument;
+	private int gender;
+	private int area_interest;
+	private String areaInterestname;
+	private int role;
+	private String companyName;
+	private String activitiesPerformed;
+	private int formation;
+	private int status;
+	private int institution;
+	private int course;
+	private String institutionname;
+	private int city;
+	private int state;
+	private int country;
+	private int languages;
+	private int level;
+	private int age;
+	private Date ageini;
+	private Date agefim;
+	
+	
+	public String getIdentificationDocument() {
+		return identificationDocument;
+	}
+	public Integer getGender() {
+		return gender;
+	}
+	public Integer getArea_interest() {
+		return area_interest;
+	}
+	public String getAreaInterestname() {
+		return areaInterestname;
+	}
+	public int getRole() {
+		return role;
+	}
+	public String getCompanyName() {
+		return companyName;
+	}
+	public String getActivitiesPerformed() {
+		return activitiesPerformed;
+	}
+	public int getFormation() {
+		return formation;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public int getInstitution() {
+		return institution;
+	}
+	public int getCourse() {
+		return course;
+	}
+	public String getInstitutionname() {
+		return institutionname;
+	}
+	public int getCity() {
+		return city;
+	}
+	public int getState() {
+		return state;
+	}
+	public int getCountry() {
+		return country;
+	}
+	public int getLanguages() {
+		return languages;
+	}
+	public int getLevel() {
+		return level;
+	}
+	public int getAge() {
+		return age;
+	}
+	public Date getAgeini() {
+		return ageini;
+	}
+	public Date getAgefim() {
+		return agefim;
+	}
+	public void setIdentificationDocument(String identificationDocument) {
+		this.identificationDocument = identificationDocument;
+	}
+	public void setGender(Integer gender) {
+		this.gender = gender;
+	}
+	public void setArea_interest(Integer area_interest) {
+		this.area_interest = area_interest;
+	}
+	public void setAreaInterestname(String areaInterestname) {
+		this.areaInterestname = areaInterestname;
+	}
+	public void setRole(int role) {
+		this.role = role;
+	}
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+	public void setActivitiesPerformed(String activitiesPerformed) {
+		this.activitiesPerformed = activitiesPerformed;
+	}
+	public void setFormation(int formation) {
+		this.formation = formation;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	public void setInstitution(int institution) {
+		this.institution = institution;
+	}
+	public void setCourse(int course) {
+		this.course = course;
+	}
+	public void setInstitutionname(String institutionname) {
+		this.institutionname = institutionname;
+	}
+	public void setCity(int city) {
+		this.city = city;
+	}
+	public void setState(int state) {
+		this.state = state;
+	}
+	public void setCountry(int country) {
+		this.country = country;
+	}
+	public void setLanguages(int languages) {
+		this.languages = languages;
+	}
+	public void setLevel(int level) {
+		this.level = level;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public void setAgeini(Date ageini) {
+		this.ageini = ageini;
+	}
+	public void setAgefim(Date agefim) {
+		this.agefim = agefim;
+	}
+	
+
+
+}
