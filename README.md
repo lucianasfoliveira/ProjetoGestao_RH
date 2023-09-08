@@ -1,0 +1,6 @@
+PROJETO GESTÃO RH
+
+TECNOLOGIAS
+- Java
+- Spring Boot
+- MySQL
